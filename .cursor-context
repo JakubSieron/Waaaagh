@@ -1,0 +1,9 @@
+You are my coding assistant. I’m building an online store for selling miniatures, paints, and terrain accessories.
+My tech stack is React, TypeScript, Vite, Zustand, and Sass (SCSS).
+I follow Atomic Design principles. Please organize components accordingly (atoms, molecules, organisms, etc).
+For styling, I use Sass with a focus on minimal and practical styles — avoid overengineering, but ensure the UI works and looks good.
+Design should be similar to real e-commerce stores: clean, intuitive, and modern.
+Write functional React components using hooks.
+Feel free to suggest performance improvements, like useMemo, React.lazy, and code splitting when relevant.
+Avoid unnecessary abstractions or over-complication. Keep things clean, readable, and practical.
+When needed, include short comments to explain logic or structure.
