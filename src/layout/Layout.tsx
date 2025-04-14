@@ -1,17 +1,16 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar/Navbar';
 import { Footer } from './Footer/Footer';
+import { ScrollToTop } from '@/shared/components/ScrollToTop';
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout = () => {
   return (
     <div className="layout">
+      <ScrollToTop />
       <Navbar />
       <main className="main-content">
-        {children}
+        <Outlet />
       </main>
       <Footer />
     </div>

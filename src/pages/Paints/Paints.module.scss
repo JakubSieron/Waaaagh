@@ -1,0 +1,152 @@
+@use "@/shared/styles/variables" as *;
+
+.page {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+}
+
+.hero {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1920/400?random=20');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: var(--gray);
+  }
+}
+
+.shippingBanner {
+  background-color: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 500;
+}
+
+.content {
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.productCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+
+    .imageWrapper img {
+      transform: scale(1.05);
+    }
+
+    .addToCart {
+      background-color: var(--accent-hover);
+    }
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+  }
+}
+
+.details {
+  padding: 1.5rem;
+
+  h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.addToCart {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--accent-hover);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .hero {
+    height: 300px;
+  }
+
+  .heroContent {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .productGrid {
+    gap: 1rem;
+  }
+} 
