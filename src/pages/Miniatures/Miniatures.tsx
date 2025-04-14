@@ -42,10 +42,6 @@ const MINIATURES_DATA = [
 ];
 
 const Miniatures = () => {
-  const handleBuyClick = (id: number) => {
-    console.log('Buy clicked for item:', id);
-  };
-
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked for item:', id);
   };
@@ -69,10 +65,10 @@ const Miniatures = () => {
             {MINIATURES_DATA.map((item) => (
               <ProductCard
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                onBuyClick={() => handleBuyClick(item.id)}
                 onFavoriteClick={() => handleFavoriteClick(item.id)}
               />
             ))}

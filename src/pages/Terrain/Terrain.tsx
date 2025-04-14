@@ -69,10 +69,10 @@ const Terrain = () => {
             {TERRAIN_DATA.map((item) => (
               <ProductCard
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                onBuyClick={() => handleBuyClick(item.id)}
                 onFavoriteClick={() => handleFavoriteClick(item.id)}
               />
             ))}
