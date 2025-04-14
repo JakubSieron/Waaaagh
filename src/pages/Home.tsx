@@ -14,76 +14,15 @@ import {
   FiClock
 } from 'react-icons/fi';
 import { FaDiceD20, FaBrush, FaMountain } from 'react-icons/fa';
-import logo from '../assets/images/logo.svg';
-import dragonImage from '../assets/images/hero/dragon.png';
+import { Hero } from '../features/home/ui/Hero';
+import { Categories } from '../features/home/ui/Categories';
 import './Home.scss';
 
 export const Home = () => {
   return (
     <div className="page">
-      <nav className="navbar">
-        <div className="container">
-          <Link to="/" className="navbar-logo">
-            <img src={logo} alt="Logo" />
-          </Link>
-          <div className="navbar-links">
-            <Link to="/featu">FEATU</Link>
-            <Link to="/catalog">CATALOG</Link>
-            <Link to="/gear">GEAR</Link>
-            <Link to="/cart">CART</Link>
-          </div>
-          <div className="navbar-actions">
-            <button>
-              <FiSearch />
-            </button>
-            <button>
-              <FiShoppingCart />
-            </button>
-            <button>
-              <FiUser />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <section className="hero">
-        <div className="container">
-          <div className="hero-content">
-            <h1>Explore top quality miniatures & accessories for gaming</h1>
-            <p>Browse by category, brand or special</p>
-            <div className="search-box">
-              <div className="input-wrapper">
-                <input 
-                  type="text" 
-                  placeholder="Search for miniatures, paints, terrain..." 
-                />
-                <FiSearch className="search-icon" />
-              </div>
-              <button className="go-button">Go</button>
-            </div>
-          </div>
-          <div className="hero-image">
-            <img src={dragonImage} alt="Dragon miniature" />
-          </div>
-        </div>
-      </section>
-
-      <section className="categories">
-        <div className="container">
-          <h2>Categories</h2>
-          <div className="category-grid">
-            {categories.map((category) => (
-              <Link to={`/category/${category.slug}`} key={category.id} className="category-card">
-                <img 
-                  src={`https://picsum.photos/200?random=${category.id}`} 
-                  alt={category.name} 
-                />
-                <h3>{category.name}</h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Hero />
+      <Categories />
 
       <section className="main-content">
         <div className="container">
@@ -234,51 +173,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <footer>
-        <div className="footer-content">
-          <div className="footer-section">
-            <img src="/logo.png" alt="Waaaght Logo" className="logo" />
-            <p>Your one-stop shop for all your miniature painting and hobby needs. Quality products, expert advice, and a vibrant community.</p>
-            <div className="social-links">
-              <a href="#"><FaDiceD20 /></a>
-              <a href="#"><FaBrush /></a>
-              <a href="#"><FaMountain /></a>
-            </div>
-          </div>
-          <div className="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h3>Categories</h3>
-            <ul>
-              <li><a href="#">Miniatures</a></li>
-              <li><a href="#">Paint Sets</a></li>
-              <li><a href="#">Brushes</a></li>
-              <li><a href="#">Terrain</a></li>
-              <li><a href="#">Accessories</a></li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h3>Store Hours</h3>
-            <div className="schedule">
-              <span>Monday - Friday: 9am - 8pm</span>
-              <span>Saturday: 10am - 6pm</span>
-              <span>Sunday: 11am - 5pm</span>
-            </div>
-            <p>Customer Support:<br />support@waaaght.com</p>
-          </div>
-        </div>
-        <div className="copyright">
-          <p>&copy; 2024 Waaaght. All rights reserved.</p>
-        </div>
-      </footer>
+
     </div>
   );
 }

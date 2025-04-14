@@ -1,0 +1,66 @@
+@use "./_variables" as *;
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+    
+    svg {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @mixin card-base {
+    background: $darker-bg;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  @mixin button-primary {
+    height: 44px;
+    padding: 0 1.25rem;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      background-color: #388e3c;
+      box-shadow: 0 0 15px rgba(56, 142, 60, 0.4);
+      transform: translateY(-1px);
+    }
+  }
