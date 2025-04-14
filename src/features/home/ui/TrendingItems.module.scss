@@ -1,0 +1,142 @@
+@import '../../../shared/styles/variables';
+
+.trending {
+  background-color: $dark-bg;
+  padding: 1rem;
+  border-radius: 8px;
+
+  .sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+      color: $text-muted;
+      margin: 0;
+
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      gap: 0.5rem;
+
+      button {
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        background: $darker-bg;
+        color: $text-muted;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: $text-light;
+        }
+      }
+    }
+  }
+
+  .trendingGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (max-width: $breakpoint-xl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .productCard {
+    background: $darker-bg;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .favorite {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 4px;
+      color: $text-light;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    .info {
+      padding: 1rem;
+
+      .title {
+        font-size: 1rem;
+        color: $text-light;
+        margin-bottom: 0.75rem;
+      }
+
+      .bottomRow {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        align-items: center;
+
+        .price {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $text-light;
+          font-size: 1.125rem;
+          font-weight: 500;
+        }
+
+        .buyButton {
+          height: 36px;
+          padding: 0 1rem;
+          background-color: $primary-color;
+          border: none;
+          border-radius: 4px;
+          color: $text-light;
+          font-size: 0.875rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: darken($primary-color, 5%);
+          }
+        }
+      }
+    }
+  }
+} 
