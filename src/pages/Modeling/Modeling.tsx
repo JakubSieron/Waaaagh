@@ -1,53 +1,56 @@
 import React from 'react';
-import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 import styles from './Modeling.module.scss';
+import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
-const MODELING_DATA = [
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Precision Tool Set',
-    price: 29.99,
-    image: 'https://picsum.photos/300/200?random=19'
+    name: 'Modeling Kit Pro',
+    price: 44.99,
+    image: '/images/products/modeling-kit.png'
   },
   {
     id: 2,
-    name: 'Sculpting Tools Kit',
-    price: 24.99,
-    image: 'https://picsum.photos/300/200?random=20'
+    name: 'Sculpting Tools',
+    price: 29.99,
+    image: '/images/products/brush-set.png'
   },
   {
     id: 3,
-    name: 'Model Putty',
-    price: 8.99,
-    image: 'https://picsum.photos/300/200?random=21'
+    name: 'Detail Kit',
+    price: 34.99,
+    image: '/images/products/paint-set.png'
   },
   {
     id: 4,
-    name: 'Detail Brushes Set',
-    price: 19.99,
-    image: 'https://picsum.photos/300/200?random=22'
+    name: 'Conversion Set',
+    price: 39.99,
+    image: '/images/products/hand-painted.png'
   },
   {
     id: 5,
-    name: 'Hobby Knife Set',
-    price: 15.99,
-    image: 'https://picsum.photos/300/200?random=23'
+    name: 'Base Making Kit',
+    price: 24.99,
+    image: '/images/products/castle-terrain.png'
   },
   {
     id: 6,
-    name: 'Plastic Cement',
-    price: 6.99,
-    image: 'https://picsum.photos/300/200?random=24'
+    name: 'Professional Tools',
+    price: 49.99,
+    image: '/images/products/colorful-set.png'
   }
 ];
 
-const Modeling = () => {
-  const handleBuyClick = (id: number) => {
-    console.log('Buy clicked for item:', id);
-  };
-
+export const Modeling = () => {
   const handleFavoriteClick = (id: number) => {
-    console.log('Favorite clicked for item:', id);
+    console.log('Favorite clicked:', id);
   };
 
   return (
@@ -66,13 +69,13 @@ const Modeling = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {MODELING_DATA.map((item) => (
+            {PRODUCTS.map((item) => (
               <ProductCard
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                onBuyClick={() => handleBuyClick(item.id)}
                 onFavoriteClick={() => handleFavoriteClick(item.id)}
               />
             ))}

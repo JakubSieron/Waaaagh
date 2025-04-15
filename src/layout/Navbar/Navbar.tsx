@@ -17,7 +17,12 @@ export const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link to="/" className={styles['navbar-logo']}>
-          WAAAGHT!
+        <img
+            src="/images/banners/logo.png"
+            alt="WAAAGHT! Logo"
+            className={styles.logoImage}
+          />
+          
         </Link>
         <div className={styles['navbar-links']}>
           <Link to="/miniatures">Miniatures</Link>

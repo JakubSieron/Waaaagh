@@ -1,61 +1,64 @@
 import React from 'react';
-import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 import styles from './Terrain.module.scss';
+import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
-const TERRAIN_DATA = [
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Gothic Ruins Set',
+    name: 'Castle Ruins',
     price: 49.99,
-    image: 'https://picsum.photos/300/200?random=7'
+    image: '/images/products/castle-terrain.png'
   },
   {
     id: 2,
-    name: 'Forest Terrain Pack',
+    name: 'Forest Set',
     price: 39.99,
-    image: 'https://picsum.photos/300/200?random=8'
+    image: '/images/products/hand-painted.png'
   },
   {
     id: 3,
-    name: 'Industrial Sector',
-    price: 59.99,
-    image: 'https://picsum.photos/300/200?random=9'
+    name: 'Desert Landscape',
+    price: 44.99,
+    image: '/images/products/colorful-set.png'
   },
   {
     id: 4,
-    name: 'Battlefield Craters',
-    price: 29.99,
-    image: 'https://picsum.photos/300/200?random=10'
+    name: 'City Buildings',
+    price: 54.99,
+    image: '/images/products/modeling-kit.png'
   },
   {
     id: 5,
-    name: 'City Buildings Set',
-    price: 69.99,
-    image: 'https://picsum.photos/300/200?random=11'
+    name: 'Battlefield Set',
+    price: 59.99,
+    image: '/images/products/brush-set.png'
   },
   {
     id: 6,
-    name: 'Desert Outpost',
-    price: 44.99,
-    image: 'https://picsum.photos/300/200?random=12'
+    name: 'Dungeon Tiles',
+    price: 34.99,
+    image: '/images/products/paint-set.png'
   }
 ];
 
-const Terrain = () => {
-  const handleBuyClick = (id: number) => {
-    console.log('Buy clicked for item:', id);
-  };
-
+export const Terrain = () => {
   const handleFavoriteClick = (id: number) => {
-    console.log('Favorite clicked for item:', id);
+    console.log('Favorite clicked:', id);
   };
 
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Terrain & Scenery</h1>
-          <p>Transform your battlefield with our premium terrain pieces</p>
+          <h1>Terrain</h1>
+          <p>Create immersive battlefields with our terrain collection</p>
         </div>
       </div>
 
@@ -66,7 +69,7 @@ const Terrain = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {TERRAIN_DATA.map((item) => (
+            {PRODUCTS.map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}

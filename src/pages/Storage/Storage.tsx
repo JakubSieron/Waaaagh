@@ -1,53 +1,56 @@
 import React from 'react';
-import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 import styles from './Storage.module.scss';
+import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
-const STORAGE_DATA = [
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Miniature Carrying Case',
-    price: 39.99,
-    image: 'https://picsum.photos/300/200?random=25'
+    name: 'Miniature Case',
+    price: 59.99,
+    image: '/images/products/modeling-kit.png'
   },
   {
     id: 2,
     name: 'Paint Storage Rack',
-    price: 24.99,
-    image: 'https://picsum.photos/300/200?random=26'
+    price: 44.99,
+    image: '/images/products/paint-set.png'
   },
   {
     id: 3,
-    name: 'Brush Case',
-    price: 12.99,
-    image: 'https://picsum.photos/300/200?random=27'
+    name: 'Brush Holder',
+    price: 19.99,
+    image: '/images/products/brush-set.png'
   },
   {
     id: 4,
     name: 'Tool Organizer',
-    price: 19.99,
-    image: 'https://picsum.photos/300/200?random=28'
+    price: 29.99,
+    image: '/images/products/hand-painted.png'
   },
   {
     id: 5,
-    name: 'Figure Display Cabinet',
+    name: 'Display Cabinet',
     price: 89.99,
-    image: 'https://picsum.photos/300/200?random=29'
+    image: '/images/products/castle-terrain.png'
   },
   {
     id: 6,
-    name: 'Terrain Storage Box',
-    price: 34.99,
-    image: 'https://picsum.photos/300/200?random=30'
+    name: 'Transport Box',
+    price: 49.99,
+    image: '/images/products/colorful-set.png'
   }
 ];
 
-const Storage = () => {
-  const handleBuyClick = (id: number) => {
-    console.log('Buy clicked for item:', id);
-  };
-
+export const Storage = () => {
   const handleFavoriteClick = (id: number) => {
-    console.log('Favorite clicked for item:', id);
+    console.log('Favorite clicked:', id);
   };
 
   return (
@@ -66,13 +69,13 @@ const Storage = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {STORAGE_DATA.map((item) => (
+            {PRODUCTS.map((item) => (
               <ProductCard
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                onBuyClick={() => handleBuyClick(item.id)}
                 onFavoriteClick={() => handleFavoriteClick(item.id)}
               />
             ))}

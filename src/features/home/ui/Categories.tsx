@@ -60,4 +60,6 @@ export const Categories = () => {
       </div>
     </section>
   );
-}; 
+};
+
+export default Categories; 

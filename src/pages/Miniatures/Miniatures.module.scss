@@ -6,13 +6,13 @@
 }
 
 .hero {
-  height: 400px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1920/400?random=13');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/images/banners/miniatures.png');
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+  height: 400px;
 }
 
 .heroContent {

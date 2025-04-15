@@ -1,49 +1,56 @@
 import React from 'react';
-import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 import styles from './Paints.module.scss';
+import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
-const PAINTS_DATA = [
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Base Paint Set',
-    price: 15.99,
-    image: 'https://picsum.photos/300/200?random=21'
+    name: 'Basic Paint Set',
+    price: 24.99,
+    image: '/images/products/paint-set.png'
   },
   {
     id: 2,
-    name: 'Metallic Paint Set',
-    price: 18.50,
-    image: 'https://picsum.photos/300/200?random=22'
+    name: 'Premium Colors',
+    price: 34.99,
+    image: '/images/products/colorful-set.png'
   },
   {
     id: 3,
-    name: 'Shade Paint Set',
-    price: 16.99,
-    image: 'https://picsum.photos/300/200?random=23'
+    name: 'Brush Collection',
+    price: 19.99,
+    image: '/images/products/brush-set.png'
   },
   {
     id: 4,
-    name: 'Layer Paint Set',
-    price: 17.50,
-    image: 'https://picsum.photos/300/200?random=24'
+    name: 'Professional Kit',
+    price: 49.99,
+    image: '/images/products/modeling-kit.png'
   },
   {
     id: 5,
-    name: 'Technical Paint Set',
-    price: 19.99,
-    image: 'https://picsum.photos/300/200?random=25'
+    name: 'Special Effects Set',
+    price: 29.99,
+    image: '/images/products/hand-painted.png'
   },
   {
     id: 6,
-    name: 'Contrast Paint Set',
-    price: 21.99,
-    image: 'https://picsum.photos/300/200?random=26'
+    name: 'Metallic Colors',
+    price: 39.99,
+    image: '/images/products/castle-terrain.png'
   }
 ];
 
-const Paints = () => {
+export const Paints = () => {
   const handleFavoriteClick = (id: number) => {
-    console.log('Favorite clicked for item:', id);
+    console.log('Favorite clicked:', id);
   };
 
   return (
@@ -62,7 +69,7 @@ const Paints = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {PAINTS_DATA.map((item) => (
+            {PRODUCTS.map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}

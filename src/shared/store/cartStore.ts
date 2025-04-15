@@ -40,7 +40,7 @@ export const useCartStore = create<CartState>((set, get) => ({
         items: [...currentItems, { ...item, quantity: 1 }],
       });
     }
-    // Автоматически открываем корзину при добавлении товара
+
     get().openCart();
   },
 

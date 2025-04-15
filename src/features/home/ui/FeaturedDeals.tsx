@@ -50,4 +50,6 @@ export const FeaturedDeals = () => {
       </div>
     </div>
   );
-}; 
+};
+
+export default FeaturedDeals; 
