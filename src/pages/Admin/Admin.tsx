@@ -1,127 +1,102 @@
 import React, { useState } from 'react';
-import { productsApi } from '@/shared/api/products';
-import { ProductFormData } from '@/shared/types/product';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import styles from './Admin.module.scss';
+import { ProductForm } from '@/features/admin/ui/ProductForm';
+import { ProductList } from '@/features/admin/ui/ProductList';
+import { Product } from '@/shared/api/mockData';
+import { productApi } from '@/shared/api/productApi';
 
-export const Admin = () => {
-  const [formData, setFormData] = useState<ProductFormData>({
-    name: '',
-    price: 0,
-    category: '',
-    description: '',
-    image: undefined
+export const Admin: React.FC = () => {
+  const [selectedProduct, setSelectedProduct] = useState<Product | undefined>();
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const queryClient = useQueryClient();
+
+  const { data: products = [], isLoading, error } = useQuery<Product[]>({
+    queryKey: ['products'],
+    queryFn: productApi.getProducts,
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: name === 'price' ? parseFloat(value) : value
-    }));
-  };
+  const createMutation = useMutation({
+    mutationFn: productApi.createProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+      setIsFormVisible(false);
+    },
+  });
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData(prev => ({
-        ...prev,
-        image: e.target.files![0]
-      }));
+  const updateMutation = useMutation({
+    mutationFn: productApi.updateProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+      setIsFormVisible(false);
+      setSelectedProduct(undefined);
+    },
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: productApi.deleteProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+    },
+  });
+
+  const handleSubmit = (productData: Omit<Product, 'id'>) => {
+    if (selectedProduct) {
+      updateMutation.mutate({ id: selectedProduct.id, ...productData });
+    } else {
+      createMutation.mutate(productData);
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await productsApi.addProduct(formData);
-      alert('Product added successfully!');
-      setFormData({
-        name: '',
-        price: 0,
-        category: '',
-        description: '',
-        image: undefined
-      });
-    } catch (error) {
-      console.error('Error adding product:', error);
-      alert('Error adding product. Please try again.');
+  const handleEdit = (product: Product) => {
+    setSelectedProduct(product);
+    setIsFormVisible(true);
+  };
+
+  const handleDelete = (id: string) => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      deleteMutation.mutate(id);
     }
   };
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading products</div>;
 
   return (
     <div className={styles.admin}>
       <h1>Admin Dashboard</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name">Product Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="price">Price</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={formData.price}
-            onChange={handleInputChange}
-            required
-            min="0"
-            step="0.01"
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="category">Category</label>
-          <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Select a category</option>
-            <option value="miniatures">Miniatures</option>
-            <option value="paints">Paints</option>
-            <option value="terrain">Terrain</option>
-            <option value="modeling">Modeling</option>
-            <option value="storage">Storage</option>
-            <option value="workshop">Workshop</option>
-          </select>
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="image">Product Image</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            onChange={handleImageChange}
-            accept="image/*"
-          />
-        </div>
-
-        <button type="submit" className={styles.submitButton}>
-          Add Product
+      
+      <div className={styles.header}>
+        <h2>Products</h2>
+        <button
+          onClick={() => {
+            setSelectedProduct(undefined);
+            setIsFormVisible(true);
+          }}
+          className={styles.addButton}
+        >
+          Add New Product
         </button>
-      </form>
+      </div>
+
+      {isFormVisible && (
+        <div className={styles.formContainer}>
+          <ProductForm
+            product={selectedProduct}
+            onSubmit={handleSubmit}
+            onCancel={() => {
+              setIsFormVisible(false);
+              setSelectedProduct(undefined);
+            }}
+          />
+        </div>
+      )}
+
+      <ProductList
+        products={products}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+      />
     </div>
   );
 };
