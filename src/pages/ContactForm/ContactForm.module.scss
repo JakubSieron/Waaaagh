@@ -1,23 +1,22 @@
-@use "@/shared/styles/variables" as *;
-
 .page {
   min-height: 100vh;
-  background-color: var(--dark-bg);
 }
 
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/images/banners/workshop.png');
-  background-size: cover;
-  background-position: center;
-  padding: 4rem 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/images/contact-hero.jpg') center/cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   text-align: center;
-  height: 400px;
+  padding: 0 1rem;
+  background-color: #f7fafc;
 }
 
 .heroContent {
-  text-align: center;
-  color: white;
+  max-width: 800px;
 
   h1 {
     font-size: 3rem;
@@ -25,128 +24,122 @@
   }
 
   p {
-    font-size: 1.2rem;
-    color: var(--gray);
+    font-size: 1.25rem;
+    opacity: 0.9;
   }
 }
 
 .shippingBanner {
-  background-color: var(--accent);
-  color: white;
   text-align: center;
+  background-color: #edf2f7;
   padding: 1rem;
-  font-weight: 500;
+  font-weight: bold;
+  color: #2d3748;
 }
 
 .content {
-  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .container {
-  max-width: $container-max-width;
+  // Add layout styles here if needed
+}
+
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-}
+.formGroup {
+  margin-bottom: 1.5rem;
 
-.productCard {
-  background: var(--card-bg);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-5px);
-
-    .imageWrapper img {
-      transform: scale(1.05);
-    }
-
-    .addToCart {
-      background-color: var(--accent-hover);
-    }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 500;
   }
-}
 
-.imageWrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-
-  img {
+  input,
+  textarea {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #4a5568;
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+    resize: vertical;
   }
 }
 
-.details {
-  padding: 1.5rem;
-
-  h3 {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price {
-  color: var(--accent);
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.addToCart {
-  background-color: var(--accent);
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #2d3748;
   color: white;
   border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: var(--accent-hover);
+    background-color: #1a202c;
   }
 }
 
-@media (max-width: $breakpoint-md) {
-  .hero {
-    height: 300px;
-  }
+.error {
+  color: #e53e3e;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
 
-  .heroContent {
-    h1 {
-      font-size: 2rem;
-    }
+.success {
+  color: #38a169;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
 
-    p {
-      font-size: 1rem;
-    }
-  }
+.contactInfo {
+  margin-top: 3rem;
+  text-align: center;
+}
 
-  .container {
-    padding: 0 1rem;
-  }
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-  .productGrid {
-    gap: 1rem;
-  }
-} 
+.infoItem {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.infoItem h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.infoItem p {
+  color: #4a5568;
+  line-height: 1.5;
+}

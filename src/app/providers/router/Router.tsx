@@ -10,6 +10,7 @@ import ContactForm from '@/pages/ContactForm/ContactForm';
 import { Layout } from '@/widgets/Layout';
 import Admin from '@/pages/Admin/Admin';
 
+
 export const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -44,8 +45,9 @@ export const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: < Admin/>,
+        element: <Admin />,
       },
+
     ],
   },
 ]); 

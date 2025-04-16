@@ -20,10 +20,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const addItem = useCartStore(state => state.addItem);
 
+  // Construct the full image URL
+  const imageUrl = image.startsWith('http') 
+    ? image 
+    : `http://localhost:3000${image}`;
+
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
-        <img src={image} alt={name} />
+        <img src={imageUrl} alt={name} onError={(e) => {
+          // Fallback image if the original fails to load
+          e.currentTarget.src = '/images/placeholder.jpg';
+        }} />
       </div>
       <button className={styles.favorite} onClick={onFavoriteClick}>
         <FiHeart />

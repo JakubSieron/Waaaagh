@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiStar } from 'react-icons/fi';
-import { popularCategories } from '../../../mockData';
+
 import styles from './PopularCategories.module.scss';
 
 export const PopularCategories = () => {
+  const [popularCategories, setPopularCategories] = useState([
+    {
+      id: 'paints',
+      title: 'Paints',
+      description: 'Explore a wide range of high-quality paints.',
+    },
+    {
+      id: 'books',
+      title: 'Books',
+      description: 'Discover guides and lore from the fantasy worlds.',
+    },
+  ]);
+
+
   return (
     <div className={styles.popularCategories}>
       <div className={styles.sectionHeader}>
@@ -25,4 +39,4 @@ export const PopularCategories = () => {
       </div>
     </div>
   );
-}; 
+};

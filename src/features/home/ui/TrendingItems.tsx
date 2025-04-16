@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiTrendingUp, FiChevronLeft, FiChevronRight, FiHeart } from 'react-icons/fi';
-import { trendingItems } from '../../../mockData';
+
 import styles from './TrendingItems.module.scss';
 
 export const TrendingItems = () => {
+  const [trendingItems] = useState([
+    {
+      id: 1,
+      title: 'Dwarfen Mountain Holds',
+      price: 120.99,
+    },
+    {
+      id: 2,
+      title: 'Ellyrian Reavers',
+      price: 74.99,
+    },
+    {
+      id: 3,
+      title: 'Chaos Warriors',
+      price: 49.99,
+    },
+    {
+      id: 4,
+      title: 'Retributor Armour',
+      price: 5.99,
+    },
+    {
+      id: 5,
+      title: 'Arcane Journal: High Elves',
+      price: 19.99,
+    }
+  ]);
+
   return (
     <div className={styles.trending}>
       <div className={styles.sectionHeader}>
@@ -42,4 +70,4 @@ export const TrendingItems = () => {
       </div>
     </div>
   );
-}; 
+};

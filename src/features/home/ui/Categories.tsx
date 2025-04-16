@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FaDiceD20, FaBrush, FaMountain, FaPalette, FaTools, FaBoxOpen } from 'react-icons/fa';
 import styles from './Categories.module.scss';
 
+
+
 const categories = [
   {
     id: 1,
@@ -12,32 +14,32 @@ const categories = [
   },
   {
     id: 2,
-    name: 'Paints',
-    slug: 'paints',
+    name: 'Paints And Tools',
+    slug: 'Paints And Tools',
     icon: <FaPalette />
   },
   {
     id: 3,
-    name: 'Terrain',
-    slug: 'terrain',
+    name: 'Books',
+    slug: 'Books',
     icon: <FaMountain />
   },
   {
     id: 4,
-    name: 'Modeling',
-    slug: 'modeling',
+    name: 'Gallery',
+    slug: 'Gallery',
     icon: <FaBrush />
   },
   {
     id: 5,
-    name: 'Storage',
-    slug: 'storage',
+    name: 'Portfolio',
+    slug: 'Portfolio',
     icon: <FaBoxOpen />
   },
   {
     id: 6,
-    name: 'Workshop',
-    slug: 'workshop',
+    name: 'ContactForm',
+    slug: 'ContactForm',
     icon: <FaTools />
   }
 ];
