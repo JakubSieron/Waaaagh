@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Paints.module.scss';
+import styles from './Portfolio.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
 interface Product {
@@ -12,43 +12,43 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Basic Paint Set',
-    price: 24.99,
-    image: '/images/products/paint-set.png'
+    name: 'Castle Ruins',
+    price: 49.99,
+    image: '/images/products/castle-terrain.png'
   },
   {
     id: 2,
-    name: 'Premium Colors',
-    price: 34.99,
-    image: '/images/products/colorful-set.png'
+    name: 'Forest Set',
+    price: 39.99,
+    image: '/images/products/hand-painted.png'
   },
   {
     id: 3,
-    name: 'Brush Collection',
-    price: 19.99,
-    image: '/images/products/brush-set.png'
+    name: 'Desert Landscape',
+    price: 44.99,
+    image: '/images/products/colorful-set.png'
   },
   {
     id: 4,
-    name: 'Professional Kit',
-    price: 49.99,
+    name: 'City Buildings',
+    price: 54.99,
     image: '/images/products/modeling-kit.png'
   },
   {
     id: 5,
-    name: 'Special Effects Set',
-    price: 29.99,
-    image: '/images/products/hand-painted.png'
+    name: 'Battlefield Set',
+    price: 59.99,
+    image: '/images/products/brush-set.png'
   },
   {
     id: 6,
-    name: 'Metallic Colors',
-    price: 39.99,
-    image: '/images/products/castle-terrain.png'
+    name: 'Dungeon Tiles',
+    price: 34.99,
+    image: '/images/products/paint-set.png'
   }
 ];
 
-export const Paints = () => {
+export const Portfolio = () => {
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
   };
@@ -57,8 +57,8 @@ export const Paints = () => {
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Paints</h1>
-          <p>High-quality paints for your miniatures</p>
+          <h1>Portfolio</h1>
+          <p>Check out our best miniature painting jobs</p>
         </div>
       </div>
 
@@ -86,4 +86,4 @@ export const Paints = () => {
   );
 };
 
-export default Paints; 
+export default Portfolio;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Terrain.module.scss';
+import styles from './PiantsAndTools.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
 interface Product {
@@ -12,43 +12,43 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Castle Ruins',
-    price: 49.99,
-    image: '/images/products/castle-terrain.png'
+    name: 'Basic Paint Set',
+    price: 24.99,
+    image: '/images/products/paint-set.png'
   },
   {
     id: 2,
-    name: 'Forest Set',
-    price: 39.99,
-    image: '/images/products/hand-painted.png'
-  },
-  {
-    id: 3,
-    name: 'Desert Landscape',
-    price: 44.99,
+    name: 'Premium Colors',
+    price: 34.99,
     image: '/images/products/colorful-set.png'
   },
   {
+    id: 3,
+    name: 'Brush Collection',
+    price: 19.99,
+    image: '/images/products/brush-set.png'
+  },
+  {
     id: 4,
-    name: 'City Buildings',
-    price: 54.99,
+    name: 'Professional Kit',
+    price: 49.99,
     image: '/images/products/modeling-kit.png'
   },
   {
     id: 5,
-    name: 'Battlefield Set',
-    price: 59.99,
-    image: '/images/products/brush-set.png'
+    name: 'Special Effects Set',
+    price: 29.99,
+    image: '/images/products/hand-painted.png'
   },
   {
     id: 6,
-    name: 'Dungeon Tiles',
-    price: 34.99,
-    image: '/images/products/paint-set.png'
+    name: 'Metallic Colors',
+    price: 39.99,
+    image: '/images/products/castle-terrain.png'
   }
 ];
 
-export const Terrain = () => {
+export const PiantsAndTools = () => {
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
   };
@@ -57,8 +57,8 @@ export const Terrain = () => {
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Terrain</h1>
-          <p>Create immersive battlefields with our terrain collection</p>
+          <h1>Piants and Tools</h1>
+          <p>High-quality paints and tools for your miniatures</p>
         </div>
       </div>
 
@@ -86,4 +86,4 @@ export const Terrain = () => {
   );
 };
 
-export default Terrain; 
+export default PiantsAndTools;

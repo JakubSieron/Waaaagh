@@ -1,18 +1,15 @@
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   price: number;
+  description: string;
   image: string;
   category: string;
-  description: string;
-  createdAt: Date;
-  updatedAt: Date;
+  stock: number;
 }
 
-export interface ProductFormData {
-  name: string;
-  price: number;
-  category: string;
-  description: string;
-  image?: File;
-} 
+export interface ProductFormProps {
+  product?: Product;
+  onSubmit: (product: Omit<Product, 'id'>) => void;
+  onCancel: () => void;
+}

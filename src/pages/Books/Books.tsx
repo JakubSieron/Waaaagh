@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Storage.module.scss';
+import styles from './Books.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
 interface Product {
@@ -12,43 +12,43 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Miniature Case',
-    price: 59.99,
+    name: 'The Lord of the Rings',
+    price: 14.99,
     image: '/images/products/modeling-kit.png'
   },
   {
     id: 2,
-    name: 'Paint Storage Rack',
-    price: 44.99,
-    image: '/images/products/paint-set.png'
-  },
-  {
-    id: 3,
-    name: 'Brush Holder',
-    price: 19.99,
+    name: 'Harry Potter',
+    price: 12.99,
     image: '/images/products/brush-set.png'
   },
   {
+    id: 3,
+    name: 'The Hobbit',
+    price: 9.99,
+    image: '/images/products/paint-set.png'
+  },
+  {
     id: 4,
-    name: 'Tool Organizer',
-    price: 29.99,
+    name: 'Pride and Prejudice',
+    price: 7.99,
     image: '/images/products/hand-painted.png'
   },
   {
     id: 5,
-    name: 'Display Cabinet',
-    price: 89.99,
+    name: '1984',
+    price: 8.99,
     image: '/images/products/castle-terrain.png'
   },
   {
     id: 6,
-    name: 'Transport Box',
-    price: 49.99,
+    name: 'To Kill a Mockingbird',
+    price: 10.99,
     image: '/images/products/colorful-set.png'
   }
 ];
 
-export const Storage = () => {
+export const Books = () => {
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
   };
@@ -57,8 +57,8 @@ export const Storage = () => {
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Storage</h1>
-          <p>Keep your miniatures and supplies organized and protected</p>
+          <h1>Books</h1>
+          <p>Explore a world of knowledge and adventure with our wide selection of books.</p>
         </div>
       </div>
 
@@ -86,4 +86,4 @@ export const Storage = () => {
   );
 };
 
-export default Storage; 
+export default Books;

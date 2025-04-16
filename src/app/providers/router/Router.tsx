@@ -2,11 +2,11 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Home from '@/pages/Home';
 import Miniatures from '@/pages/Miniatures/Miniatures';
-import Paints from '@/pages/Paints/Paints';
-import Terrain from '@/pages/Terrain/Terrain';
-import Modeling from '@/pages/Modeling/Modeling';
-import Storage from '@/pages/Storage/Storage';
-import Workshop from '@/pages/Workshop/Workshop';
+import PiantsAndTools from '@/pages/PiantsAndTools/PiantsAndTools';
+import Portfolio from '@/pages/Portfolio/Portfolio';
+import Books from '@/pages/Books/Books';
+import Gallery from '@/pages/Gallery/Gallery';
+import ContactForm from '@/pages/ContactForm/ContactForm';
 import { Layout } from '@/widgets/Layout';
 import Admin from '@/pages/Admin/Admin';
 
@@ -23,24 +23,24 @@ export const router = createBrowserRouter([
         element: <Miniatures />,
       },
       {
-        path: '/paints',
-        element: <Paints />,
+        path: '/piantsandtools',
+        element: <PiantsAndTools />,
       },
       {
-        path: '/terrain',
-        element: <Terrain />,
+        path: '/portfolio',
+        element: <Portfolio />,
       },
       {
-        path: '/modeling',
-        element: <Modeling />,
+        path: '/books',
+        element: <Books />,
       },
       {
-        path: '/storage',
-        element: <Storage />,
+        path: '/gallery',
+        element: <Gallery />,
       },
       {
-        path: '/workshop',
-        element: <Workshop />,
+        path: '/contactform',
+        element: <ContactForm />,
       },
       {
         path: '/admin',

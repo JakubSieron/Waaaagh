@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Modeling.module.scss';
+import styles from './Gallery.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 
 interface Product {
@@ -12,43 +12,43 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Modeling Kit Pro',
-    price: 44.99,
+    name: 'Miniature Diorama',
+    price: 59.99,
     image: '/images/products/modeling-kit.png'
   },
   {
     id: 2,
-    name: 'Sculpting Tools',
-    price: 29.99,
-    image: '/images/products/brush-set.png'
-  },
-  {
-    id: 3,
-    name: 'Detail Kit',
-    price: 34.99,
+    name: 'Hand-Painted Figure',
+    price: 44.99,
     image: '/images/products/paint-set.png'
   },
   {
+    id: 3,
+    name: 'Custom Terrain Piece',
+    price: 19.99,
+    image: '/images/products/brush-set.png'
+  },
+  {
     id: 4,
-    name: 'Conversion Set',
-    price: 39.99,
+    name: 'Scratch Built Model',
+    price: 29.99,
     image: '/images/products/hand-painted.png'
   },
   {
     id: 5,
-    name: 'Base Making Kit',
-    price: 24.99,
+    name: 'Epic Battle Scene',
+    price: 89.99,
     image: '/images/products/castle-terrain.png'
   },
   {
     id: 6,
-    name: 'Professional Tools',
+    name: 'Group Army Shot',
     price: 49.99,
     image: '/images/products/colorful-set.png'
   }
 ];
 
-export const Modeling = () => {
+export const Gallery = () => {
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
   };
@@ -57,8 +57,8 @@ export const Modeling = () => {
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Modeling</h1>
-          <p>Professional tools for miniature modeling and customization</p>
+          <h1>Gallery</h1>
+          <p>Showcase of beautiful miniatures and terrain</p>
         </div>
       </div>
 
@@ -86,4 +86,4 @@ export const Modeling = () => {
   );
 };
 
-export default Modeling; 
+export default Gallery;

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Product } from '../model/types';
+import { Product, ProductFormProps } from '@/shared/types/product';
 import styles from './ProductForm.module.scss';
 
-interface ProductFormProps {
-  product?: Product;
-  onSubmit: (product: Omit<Product, 'id'>) => void;
-  onCancel: () => void;
-}
 
 export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onCancel }) => {
   const [formData, setFormData] = useState<Omit<Product, 'id'>>({
@@ -99,11 +94,11 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onC
           required
         >
           <option value="miniatures">Miniatures</option>
-          <option value="paints">Paints</option>
-          <option value="terrain">Terrain</option>
-          <option value="modeling">Modeling</option>
-          <option value="storage">Storage</option>
-          <option value="workshop">Workshop</option>
+          <option value="piantsandtools">PiantsAndTools</option>
+          <option value="portfolio">Portfolio</option>
+          <option value="books">Books</option>
+          <option value="gallery">Gallery</option>
+          <option value="contactform">ContactForm</option>
         </select>
       </div>
 
