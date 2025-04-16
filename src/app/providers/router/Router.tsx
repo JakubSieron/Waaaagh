@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Layout } from '@/layout/Layout';
+
 import Home from '@/pages/Home';
 import Miniatures from '@/pages/Miniatures/Miniatures';
 import Paints from '@/pages/Paints/Paints';
@@ -7,6 +7,8 @@ import Terrain from '@/pages/Terrain/Terrain';
 import Modeling from '@/pages/Modeling/Modeling';
 import Storage from '@/pages/Storage/Storage';
 import Workshop from '@/pages/Workshop/Workshop';
+import { Layout } from '@/widgets/Layout';
+import Admin from '@/pages/Admin/Admin';
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: '/workshop',
         element: <Workshop />,
+      },
+      {
+        path: '/admin',
+        element: < Admin/>,
       },
     ],
   },
