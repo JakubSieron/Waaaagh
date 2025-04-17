@@ -1,38 +1,9 @@
-import { useEffect, useState } from 'react';
-import { productService } from '../../features/products/services/productService';
+import { useMiniatures } from '@/shared/hooks/useMiniatures';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 import styles from './Miniatures.module.scss';
 
-interface Product {
-  id: number;
-  name: string;
-  category: string;
-  image: string;
-  price: number;
-  description: string;
-}
-
 export const Miniatures = () => {
-  const [miniatures, setMiniatures] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchMiniatures = async () => {
-      try {
-        const data = await productService.getMiniatures();
-        setMiniatures(data);
-        console.log(data);
-      } catch (err) {
-        setError('Failed to load miniatures');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMiniatures();
-  }, []);
+  const { miniatures, loading, error } = useMiniatures();
 
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;

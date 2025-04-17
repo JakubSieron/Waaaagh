@@ -1,57 +1,22 @@
 import React from 'react';
 import styles from './Books.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
-
-const PRODUCTS: Product[] = [
-  {
-    id: 1,
-    name: 'The Lord of the Rings',
-    price: 14.99,
-    image: '/images/products/modeling-kit.png'
-  },
-  {
-    id: 2,
-    name: 'Harry Potter',
-    price: 12.99,
-    image: '/images/products/brush-set.png'
-  },
-  {
-    id: 3,
-    name: 'The Hobbit',
-    price: 9.99,
-    image: '/images/products/paint-set.png'
-  },
-  {
-    id: 4,
-    name: 'Pride and Prejudice',
-    price: 7.99,
-    image: '/images/products/hand-painted.png'
-  },
-  {
-    id: 5,
-    name: '1984',
-    price: 8.99,
-    image: '/images/products/castle-terrain.png'
-  },
-  {
-    id: 6,
-    name: 'To Kill a Mockingbird',
-    price: 10.99,
-    image: '/images/products/colorful-set.png'
-  }
-];
+import { useBooks } from '@/shared/hooks/useBooks';
 
 export const Books = () => {
+  const { books, loading, error } = useBooks();
+
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
   };
+
+  if (loading) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className={styles.error}>{error}</div>;
+  }
 
   return (
     <div className={styles.page}>
@@ -69,7 +34,7 @@ export const Books = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {PRODUCTS.map((item) => (
+            {books.map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}

@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Home from '@/pages/Home';
 import Miniatures from '@/pages/Miniatures/Miniatures';
-import PiantsAndTools from '@/pages/PiantsAndTools/PiantsAndTools';
+import PiantsAndTools from '@/pages/PaintsAndTools/PaintsAndTools';
 import Portfolio from '@/pages/Portfolio/Portfolio';
 import Books from '@/pages/Books/Books';
 import Gallery from '@/pages/Gallery/Gallery';
