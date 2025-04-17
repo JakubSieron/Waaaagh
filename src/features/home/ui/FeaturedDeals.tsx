@@ -1,8 +1,10 @@
 import React from 'react';
-import { FiGift } from 'react-icons/fi';
+import { FiTag, FiChevronLeft, FiChevronRight, FiHeart } from 'react-icons/fi';
 import { useDiscountedProducts } from '@/shared/hooks/useDiscountedProducts';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
+import { Product } from '@/shared/types/product';
 import styles from './FeaturedDeals.module.scss';
+
 
 export const FeaturedDeals = () => {
   const { products, loading, error } = useDiscountedProducts();
@@ -18,21 +20,22 @@ export const FeaturedDeals = () => {
   }
 
   return (
-    <div className={styles.featuredDeals}>
+    <div className={styles.featured}>
       <div className={styles.sectionHeader}>
         <h2>
-          <FiGift />
+          <FiTag />
           Featured Deals
         </h2>
       </div>
-      <div className={styles.dealsGrid}>
-        {products.map((product) => (
+      <div className={styles.featuredGrid}>
+        {products.map((product: Product) => (
           <ProductCard
             key={product.id}
             id={product.id}
             name={product.name}
             price={product.price}
             image={product.image}
+            description={product.description}
             onFavoriteClick={() => {}}
           />
         ))}

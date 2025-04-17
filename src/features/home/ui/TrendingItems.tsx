@@ -38,13 +38,14 @@ export const TrendingItems = () => {
       <div className={styles.trendingGrid}>
         {trendingItems.map((product) => (
           <ProductCard
-          key={product.id}
-          id={product.id}
-          name={product.name}
-          price={product.price}
-          image={product.image}
-          onFavoriteClick={() => {}}
-        />
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            description={product.description}
+            onFavoriteClick={() => {}}
+          />
         ))}
       </div>
     </div>
