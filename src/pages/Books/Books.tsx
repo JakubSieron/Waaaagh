@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Books.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
-import { useBooks } from '@/shared/hooks/useBooks';
+import { useProductsByCategory } from '@/shared/hooks/useProductsByCategory';
+
 
 export const Books = () => {
-  const { books, loading, error } = useBooks();
+  const { products, loading, error } = useProductsByCategory('books');
 
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
@@ -34,7 +35,7 @@ export const Books = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {books.map((item) => (
+            {products.map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}

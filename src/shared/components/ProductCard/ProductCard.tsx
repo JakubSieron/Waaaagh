@@ -20,7 +20,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const addItem = useCartStore(state => state.addItem);
 
-  // Construct the full image URL
+
   const imageUrl = image.startsWith('http') 
     ? image 
     : `http://localhost:3000${image}`;

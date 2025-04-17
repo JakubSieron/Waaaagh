@@ -1,9 +1,10 @@
-import { useMiniatures } from '@/shared/hooks/useMiniatures';
+import { useProductsByCategory } from '@/shared/hooks/useProductsByCategory';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
 import styles from './Miniatures.module.scss';
 
+
 export const Miniatures = () => {
-  const { miniatures, loading, error } = useMiniatures();
+  const { products, loading, error } = useProductsByCategory('miniatures');
 
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;
@@ -12,6 +13,7 @@ export const Miniatures = () => {
   if (error) {
     return <div className={styles.error}>{error}</div>;
   }
+
 
   return (
     <div className={styles.page}>
@@ -29,7 +31,7 @@ export const Miniatures = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {miniatures.map((product) => (
+            {products.map((product) => (
               <ProductCard
                 key={product.id}
                 id={product.id}

@@ -1,10 +1,12 @@
 import React from 'react';
-import styles from './PaintsAndTools.module.scss';
 import { ProductCard } from '@/shared/components/ProductCard/ProductCard';
-import { usePaintsAndTools } from '@/shared/hooks/usePaintsAndTools';
+import { useProductsByCategory } from '@/shared/hooks/useProductsByCategory';
+import styles from './PaintsAndTools.module.scss';
+
+
 
 export const PiantsAndTools = () => {
-  const { paintsAndTools, loading, error } = usePaintsAndTools();
+  const { products, loading, error } = useProductsByCategory('paints');
 
   const handleFavoriteClick = (id: number) => {
     console.log('Favorite clicked:', id);
@@ -34,7 +36,7 @@ export const PiantsAndTools = () => {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.productGrid}>
-            {paintsAndTools.map((item) => (
+            {products.map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}
