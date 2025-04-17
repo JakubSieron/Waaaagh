@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Product } from '@/shared/types/product';
 
-interface Product {
-  id: number;
-  name: string;
-  category: string;
-  image: string;
-  price: number;
-  description: string;
-}
 
 export const useProductsByCategory = (category: string) => {
   const [products, setProducts] = useState<Product[]>([]);

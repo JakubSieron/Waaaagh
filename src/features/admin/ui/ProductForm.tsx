@@ -4,27 +4,29 @@ import styles from './ProductForm.module.scss';
 
 
 export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onCancel }) => {
-  const [formData, setFormData] = useState<Omit<Product, 'id'>>({
+  const [formData, setFormData] = useState<Omit<Product, 'id'> & { trending: boolean; discount: boolean }>({
     name: '',
     price: 0,
     description: '',
     image: '',
     category: 'miniatures',
     stock: 0,
+    trending: false,
+    discount: false,
   });
 
   useEffect(() => {
     if (product) {
       const { id, ...productData } = product;
-      setFormData(productData);
+      setFormData({...productData, trending: product.trending || false, discount: product.discount || false});
     }
   }, [product]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'price' || name === 'stock' ? Number(value) : value
+      [name]: type === 'checkbox' ? checked : (name === 'price' || name === 'stock' ? Number(value) : value)
     }));
   };
 
@@ -112,6 +114,28 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onC
           onChange={handleChange}
           min="0"
           required
+        />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="trending">Trending</label>
+        <input
+          type="checkbox"
+          id="trending"
+          name="trending"
+          checked={formData.trending}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="discount">Discount</label>
+        <input
+          type="checkbox"
+          id="discount"
+          name="discount"
+          checked={formData.discount}
+          onChange={handleChange}
         />
       </div>
 

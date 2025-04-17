@@ -1,11 +1,13 @@
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   price: number;
   description: string;
   image: string;
   category: string;
   stock: number;
+  trending: boolean;
+  discount: boolean;
 }
 
 export interface ProductFormProps {
