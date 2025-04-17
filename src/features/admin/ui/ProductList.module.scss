@@ -44,6 +44,8 @@
   border-radius: 4px;
   font-size: 0.875rem;
   font-weight: 500;
+  height: 40px;
+  width: 90px;
   cursor: pointer;
   transition: background-color 0.2s;
 
@@ -61,3 +63,24 @@
   background-color: #dc3545;
   color: white;
 } 
+
+.trendingButton {
+  padding: 0.2rem 0.8rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+}
+
+.trending {
+  background-color: #28a745; 
+  color: white;
+}
+
+.notTrending {
+  background-color: #6c757d; 
+  color: white;
+}

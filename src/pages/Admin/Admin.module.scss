@@ -2,56 +2,95 @@
 @use "sass:color";
 
 .admin {
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem;
-  background-color: $dark-bg;
-  color: $text-light;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: #fff;
 
   h1 {
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: $text-light;
+    color: #fff;
+    margin-bottom: 2rem;
+    font-size: 2rem;
     text-align: center;
-    font-weight: 700;
   }
 
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 3rem;
+    align-items: center;
+    margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgba($text-light, 0.1);
+    border-bottom: 1px solid #444;
 
     h2 {
-      margin: 0;
-      font-size: 2rem;
-      color: $text-light;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .addButton {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #218838;
+      }
     }
   }
 
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: $darker-bg;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-  .addButton {
-    align-self: flex-end;
-    padding: 0.75rem 1.5rem;
-    background-color: $primary-color;
-    color: $text-light;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    button {
+      flex: 1;
+      background: none;
+      border: none;
+      color: $text-light;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
 
-    &:hover,
-    &:focus {
-      background-color: color.adjust($primary-color, $lightness: -10%);
-    }
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $primary-color;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
 
-    @media (max-width: 576px) {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
+      &:hover {
+        background-color: rgba($text-light, 0.1);
+      }
+
+      &.active {
+        background-color: $primary-color;
+        color: $text-light;
+        
+        &::after {
+          transform: scaleX(1);
+        }
+      }
     }
   }
 
@@ -61,6 +100,51 @@
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    .checkboxContainer {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+
+      input[type="checkbox"] {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba($text-light, 0.2);
+        border-radius: 4px;
+        background-color: $dark-bg;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s;
+
+        &:checked {
+          background-color: $primary-color;
+          border-color: $primary-color;
+
+          &::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $text-light;
+            font-size: 14px;
+          }
+        }
+
+        &:hover {
+          border-color: $primary-color;
+        }
+      }
+
+      label {
+        margin: 0;
+        cursor: pointer;
+        user-select: none;
+        color: $text-light;
+      }
+    }
   }
 
   .form {
@@ -138,7 +222,6 @@
       }
     }
   }
-
 
   .productList {
     padding: 2rem;

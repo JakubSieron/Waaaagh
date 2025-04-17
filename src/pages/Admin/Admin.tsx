@@ -5,14 +5,15 @@ import { ProductList } from '@/features/admin/ui/ProductList';
 import { Product } from '@/shared/types/product';
 import Modal from '@/shared/components/Modal/Modal';
 import { useProductsByCategory } from '@/shared/hooks/useProductsByCategory';
+import { useAdminProducts } from '@/shared/hooks/useAdminProducts';
 
 
 export const Admin: React.FC = () => {
   const { selectedProduct, setSelectedProduct, isFormVisible, setIsFormVisible, handleCloseModal, handleSubmit, handleEdit, handleDelete, handleToggleTrending } = useAdminProducts();
 
-  const { products: books, loading: isLoadingBooks, error: errorBooks } = useProductsByCategory('books');
-  const { products: miniatures, loading: isLoadingMiniatures, error: errorMiniatures } = useProductsByCategory('miniatures');
-  const { products: paints, loading: isLoadingPaints, error: errorPaints } = useProductsByCategory('paints');
+  const { products: books, loading: isLoadingBooks, error: errorBooks,refetch: refetchBooks } = useProductsByCategory('books');
+  const { products: miniatures, loading: isLoadingMiniatures, error: errorMiniatures,refetch: refetchMiniatures } = useProductsByCategory('miniatures');
+  const { products: paints, loading: isLoadingPaints, error: errorPaints,refetch: refetchPaints } = useProductsByCategory('paints');
 
   const [activeTab, setActiveTab] = useState('miniatures');
 
@@ -29,13 +30,21 @@ export const Admin: React.FC = () => {
     }
   };
 
+  const refetchActiveTab = () => {
+    if (activeTab === 'books') refetchBooks();
+    else if (activeTab === 'miniatures') refetchMiniatures();
+    else if (activeTab === 'paints') refetchPaints();
+  };
+
   const isLoading = isLoadingBooks || isLoadingMiniatures || isLoadingPaints;
   const error = errorBooks || errorMiniatures || errorPaints;
 
   const onSubmit = async (productData: Omit<Product, 'id'>) => {
-    // Assuming handleSubmit function in useAdminProducts can handle the complete Product type
     await handleSubmit(productData as Product);
+    refetchActiveTab(); 
+    setIsFormVisible(false); 
   };
+  
 
   return (
     <div className={styles.admin}>

@@ -23,11 +23,15 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onC
   }, [product]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : (name === 'price' || name === 'stock' ? Number(value) : value)
-    }));
+    const { name, value, type } = e.target;
+
+    setFormData(prev => {
+      if (name === 'trending' || name === 'discount') {
+        return { ...prev, [name]: (e.target as HTMLInputElement).checked };
+      } else {
+        return { ...prev, [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : (name === 'price' || name === 'stock' ? Number(value) : value) };
+      }
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -77,12 +81,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onC
       <div className={styles.formGroup}>
         <label htmlFor="image">Image URL</label>
         <input
-          type="url"
+          type="text"
           id="image"
           name="image"
           value={formData.image}
           onChange={handleChange}
-          required
+          required={!product}
         />
       </div>
 
@@ -96,11 +100,11 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onC
           required
         >
           <option value="miniatures">Miniatures</option>
-          <option value="piantsandtools">PiantsAndTools</option>
+          <option value="paints">Paints and tools</option>
           <option value="portfolio">Portfolio</option>
           <option value="books">Books</option>
           <option value="gallery">Gallery</option>
-          <option value="contactform">ContactForm</option>
+          <option value="contact">Contact</option>
         </select>
       </div>
 
@@ -117,27 +121,28 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onC
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="trending">Trending</label>
-        <input
-          type="checkbox"
-          id="trending"
-          name="trending"
-          checked={formData.trending}
-          onChange={handleChange}
-        />
-      </div>
+      <div className={styles.checkboxGroup}>
+  <input
+    type="checkbox"
+    id="trending"
+    name="trending"
+    checked={formData.trending}
+    onChange={handleChange}
+  />
+  <label htmlFor="trending">Trending</label>
+</div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="discount">Discount</label>
-        <input
-          type="checkbox"
-          id="discount"
-          name="discount"
-          checked={formData.discount}
-          onChange={handleChange}
-        />
-      </div>
+<div className={styles.checkboxGroup}>
+  <input
+    type="checkbox"
+    id="discount"
+    name="discount"
+    checked={formData.discount}
+    onChange={handleChange}
+  />
+  <label htmlFor="discount">Discount</label>
+</div>
+
 
       <div className={styles.formActions}>
         <button type="submit" className={styles.submitButton}>

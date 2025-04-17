@@ -18,14 +18,14 @@ const Home: React.FC = () => {
         </div>
         <div className="right-column">
           <TrendingItems />
-          <PopularCategories />
+          {/* <PopularCategories /> */}
         </div>
       </div>
-      <div className="blog-section">
+      {/* <div className="blog-section">
         <div className="container">
           <Blog />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

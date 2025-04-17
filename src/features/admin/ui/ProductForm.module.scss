@@ -69,3 +69,22 @@
   background-color: #6c757d;
   color: white;
 } 
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff; 
+  }
+
+  label {
+    margin: 0;
+    font-weight: 500;
+    color: #333;
+  }
+}
