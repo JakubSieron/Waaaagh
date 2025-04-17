@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { ScrollToTop } from '@/shared/components/ScrollToTop';
 import { Footer } from './Footer/Footer';
 import { Navbar } from './Navbar/Navbar';
+import { Cart } from './cart/ui/Cart';
 
 export const Layout = () => {
   return (
@@ -14,6 +15,7 @@ export const Layout = () => {
         <Outlet />
       </main>
       <Footer />
+      <Cart />
     </div>
   );
 }; 
