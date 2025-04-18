@@ -1,4 +1,5 @@
 @use "@/shared/styles/variables" as *;
+@use "sass:color" as color;
 
 .card {
   background: $darker-bg;
@@ -21,7 +22,7 @@
     }
 
     .buyButton {
-      background-color: darken($primary-color, 10%);
+      background-color: color.adjust($primary-color, $lightness: -10%);
     }
   }
 }
@@ -109,7 +110,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
@@ -142,6 +142,6 @@
   font-size: 0.9rem;
 
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: color.adjust($primary-color, $lightness: -10%);
   }
 } 

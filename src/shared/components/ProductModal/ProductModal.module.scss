@@ -1,4 +1,5 @@
 @use "@/shared/styles/variables" as *;
+@use "sass:color" as color;
 
 .modalOverlay {
   position: fixed;
@@ -140,7 +141,7 @@
       transition: background-color 0.2s;
 
       &:hover {
-        background-color: darken($primary-color, 10%);
+        background-color: color.adjust($primary-color, $lightness: -10%);
       }
 
       svg {
