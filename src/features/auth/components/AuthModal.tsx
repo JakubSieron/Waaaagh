@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from '@/shared/components/Modal/Modal';
 import { useAuth } from '../context/AuthContext';
 import styles from './AuthModal.module.scss';
@@ -17,6 +17,20 @@ export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
   });
   const [error, setError] = useState<string | null>(null);
   const { login, register } = useAuth();
+
+  
+    useEffect(() => {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
+      }
+  
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }, [isOpen]);
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

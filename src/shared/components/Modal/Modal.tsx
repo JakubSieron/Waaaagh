@@ -10,7 +10,7 @@ interface ModalProps {
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
-  // Prevent closing when clicking inside the modal content
+
   const handleModalContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };

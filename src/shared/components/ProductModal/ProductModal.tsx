@@ -31,7 +31,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, pro
     };
   }, [isOpen]);
 
-  console.log(product.description, 'product');
+
 
   if (!isOpen) return null;
 
