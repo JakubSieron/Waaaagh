@@ -39,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             e.currentTarget.src = '/images/placeholder.jpg';
           }} />
         </div>
-        <button 
+        {/* <button 
           className={styles.favorite} 
           onClick={(e) => {
             e.stopPropagation();
@@ -47,7 +47,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           }}
         >
           <FiHeart />
-        </button>
+        </button> */}
         <div className={styles.info}>
           <h3 className={styles.title}>{name}</h3>
           <div className={styles.bottomRow}>

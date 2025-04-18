@@ -50,9 +50,9 @@ export const Navbar: React.FC = () => {
         <div className={styles.links}>
           <Link to="/miniatures">Miniatures</Link>
           <Link to="/piantsandtools">PiantsAndTools</Link>
-          <Link to="/portfolio">Portfolio</Link>
+          {/* <Link to="/portfolio">Portfolio</Link> */}
           <Link to="/books">Books</Link>
-          <Link to="/gallery">Gallery</Link>
+          {/* <Link to="/gallery">Gallery</Link> */}
           <Link to="/contactform">ContactForm</Link>
         </div>
 

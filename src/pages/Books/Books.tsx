@@ -42,6 +42,7 @@ export const Books = () => {
                 name={item.name}
                 price={item.price}
                 image={item.image}
+                description={item.description}
                 onFavoriteClick={() => handleFavoriteClick(item.id)}
               />
             ))}
