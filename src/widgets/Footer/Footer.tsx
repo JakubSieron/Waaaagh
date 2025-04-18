@@ -16,18 +16,16 @@ export const Footer: React.FC = () => {
         <div className={styles['footer-links']}>
           <div className={styles['footer-column']}>
             <h3>Quick Links</h3>
-            <Link to="/about">About Us</Link>
+            <Link to="/">Home</Link>
+            <Link to="/aboutus">About Us</Link>
             <Link to="/contact">Contact</Link>
-            <Link to="/shipping">Shipping Info</Link>
-            <Link to="/returns">Returns</Link>
           </div>
 
           <div className={styles['footer-column']}>
             <h3>Categories</h3>
-            <Link to="/category/miniatures">Miniatures</Link>
-            <Link to="/category/paints">Paints</Link>
-            <Link to="/category/terrain">Terrain</Link>
-            <Link to="/category/tools">Tools</Link>
+            <Link to="/miniatures">Miniatures</Link>
+            <Link to="/books">Books</Link>
+            <Link to="/paintsandtools">Paints</Link>
           </div>
 
           <div className={styles['footer-column']}>
@@ -42,9 +40,15 @@ export const Footer: React.FC = () => {
             <p>Email: support@waaaght.com</p>
             <p>Phone: (123) 456-7890</p>
             <div className={styles['footer-social']}>
-              <a href="#" aria-label="Facebook"><FiFacebook /></a>
-              <a href="#" aria-label="Twitter"><FiTwitter /></a>
-              <a href="#" aria-label="Instagram"><FiInstagram /></a>
+              <a href="#" aria-label="Facebook">
+                <FiFacebook />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <FiTwitter />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <FiInstagram />
+              </a>
             </div>
           </div>
         </div>
@@ -56,4 +60,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-
