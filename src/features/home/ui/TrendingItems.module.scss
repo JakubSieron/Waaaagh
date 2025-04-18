@@ -1,3 +1,4 @@
+@use "sass:color" as color;
 @use "@/shared/styles/variables" as *;
 
 .trending {
@@ -24,26 +25,28 @@
       }
     }
 
-    .navigation {
+    .arrows {
       display: flex;
       gap: 0.5rem;
 
       button {
-        width: 32px;
-        height: 32px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: transparent;
+        border: none;
+        color: $text-light;
+        padding: 0.5rem;
         border-radius: 4px;
-        background: $darker-bg;
-        color: $text-muted;
+        cursor: pointer;
+        transition: background 0.2s ease;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s;
+
+        svg {
+          font-size: 1.25rem;
+        }
 
         &:hover {
           background: rgba(255, 255, 255, 0.1);
-          color: $text-light;
         }
       }
     }
@@ -89,7 +92,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: background 0.2s;
 
       &:hover {
         background: rgba(0, 0, 0, 0.7);
@@ -130,11 +133,13 @@
           font-size: 0.875rem;
           font-weight: 500;
           cursor: pointer;
-          transition: background-color 0.2s;
+          transition: background-color 0.2s ease;
 
-         
+          &:hover {
+            background-color: color.adjust($primary-color, $lightness: -10%);
+          }
         }
       }
     }
   }
-} 
+}

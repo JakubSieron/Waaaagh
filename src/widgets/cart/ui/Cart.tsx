@@ -31,40 +31,48 @@ export const Cart: React.FC = () => {
 
         <div className={styles.items}>
           {items.length === 0 ? (
-            <div className={styles.empty}>
-              Your cart is empty
-            </div>
+            <div className={styles.empty}>Your cart is empty</div>
           ) : (
-            items.map((item) => (
-              <div key={item.id} className={styles.item}>
-                <img src={item.image} alt={item.name} className={styles.itemImage} />
-                <div className={styles.itemInfo}>
-                  <h3>{item.name}</h3>
-                  <div className={styles.price}>${item.price.toFixed(2)}</div>
-                  <div className={styles.quantity}>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className={styles.quantityButton}
-                    >
-                      <FiMinus />
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className={styles.quantityButton}
-                    >
-                      <FiPlus />
-                    </button>
-                    <button
-                      onClick={() => removeItem(item.id)}
-                      className={styles.removeButton}
-                    >
-                      <FiTrash2 />
-                    </button>
+            items.map((item) => {
+              const imageUrl = item.image.startsWith('http')
+                ? item.image
+                : `http://localhost:3000${item.image}`;
+              return (
+                <div key={item.id} className={styles.item}>
+                  <img
+                    src={imageUrl}
+                    alt={item.name}
+                    className={styles.itemImage}
+                    onError={(e) => { e.currentTarget.src = '/images/placeholder.jpg'; }}
+                  />
+                  <div className={styles.itemInfo}>
+                    <h3>{item.name}</h3>
+                    <div className={styles.price}>${item.price.toFixed(2)}</div>
+                    <div className={styles.quantity}>
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className={styles.quantityButton}
+                      >
+                        <FiMinus />
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className={styles.quantityButton}
+                      >
+                        <FiPlus />
+                      </button>
+                      <button
+                        onClick={() => removeItem(item.id)}
+                        className={styles.removeButton}
+                      >
+                        <FiTrash2 />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
 
@@ -87,4 +95,6 @@ export const Cart: React.FC = () => {
       </div>
     </div>
   );
-}; 
+};
+
+export default Cart;

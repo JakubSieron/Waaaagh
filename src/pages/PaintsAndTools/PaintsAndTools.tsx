@@ -5,7 +5,7 @@ import styles from './PaintsAndTools.module.scss';
 
 
 
-export const PiantsAndTools = () => {
+export const PaintsAndTools = () => {
   const { products, loading, error } = useProductsByCategory('paints');
 
   const handleFavoriteClick = (id: number) => {
@@ -54,4 +54,4 @@ export const PiantsAndTools = () => {
   );
 };
 
-export default PiantsAndTools;
+export default PaintsAndTools;

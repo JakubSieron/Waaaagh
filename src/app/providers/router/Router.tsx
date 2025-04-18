@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Home from '@/pages/Home';
 import Miniatures from '@/pages/Miniatures/Miniatures';
-import PiantsAndTools from '@/pages/PaintsAndTools/PaintsAndTools';
+import PaintsAndTools from '@/pages/PaintsAndTools/PaintsAndTools';
 import Portfolio from '@/pages/Portfolio/Portfolio';
 import Books from '@/pages/Books/Books';
 import Gallery from '@/pages/Gallery/Gallery';
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
         element: <Miniatures />,
       },
       {
-        path: '/piantsandtools',
-        element: <PiantsAndTools />,
+        path: '/paintsandtools',
+        element: <PaintsAndTools />,
       },
       {
         path: '/portfolio',

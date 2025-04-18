@@ -15,7 +15,7 @@ const categories = [
   {
     id: 2,
     name: 'Paints And Tools',
-    slug: 'Paints And Tools',
+    slug: 'PaintsAndTools',
     icon: <FaPalette />
   },
   {
