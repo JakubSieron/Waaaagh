@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
         </Link>
         
         <div className={styles.links}>
-           <Link to="/portfolio">Portfolio</Link>
+           <Link to="/aboutus">Abouts us</Link>
           <Link to="/miniatures">Miniatures</Link>
           <Link to="/paintsandtools">PaintsAndTools</Link>
           <Link to="/books">Books</Link>
