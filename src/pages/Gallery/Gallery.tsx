@@ -9,12 +9,18 @@ interface ImageItem {
 }
 
 const IMAGES: ImageItem[] = [
-  { id: 1, name: 'Miniature Diorama',   image: '/images/products/modeling-kit.png' },
-  { id: 2, name: 'Hand‑Painted Figure',   image: '/images/products/paint-set.png' },
-  { id: 3, name: 'Custom Terrain Piece',  image: '/images/products/brush-set.png' },
-  { id: 4, name: 'Scratch Built Model',   image: '/images/products/hand-painted.png' },
-  { id: 5, name: 'Epic Battle Scene',     image: '/images/products/castle-terrain.png' },
-  { id: 6, name: 'Group Army Shot',       image: '/images/products/colorful-set.png' },
+  { id: 1, name: 'Wood Elf Waywatcher',   image: '/images/products/elves.png' },
+  { id: 2, name: 'Empire Bright Wizard',   image: '/images/products/wizard.png' },
+  { id: 3, name: 'Space Mmarine Captain',  image: '/images/products/marines.png' },
+  { id: 4, name: 'Supreme Patriarch of the Imperial Colleges of Magic',   image: '/images/products/geld.png' },
+  { id: 5, name: 'Imperial Steamtank',     image: '/images/products/tank.png' },
+  { id: 6, name: 'Gotrek and Felix',       image: '/images/products/gotrkfelix.png' },
+  { id: 7, name: 'Skaven Bell of Doom',   image: '/images/products/doombell.png' },
+  { id: 8, name: 'Bloodthirster',   image: '/images/products/blood.png' },
+  { id: 9, name: 'Dragon Ogre',  image: '/images/products/drogr.png' },
+  { id: 10, name: 'Daemonette of Slaanesh',   image: '/images/products/slan.png' },
+  { id: 11, name: 'Slann Mage-Priest',     image: '/images/products/lizard.png' },
+  { id: 12, name: 'High Elf Prince on Griffon',       image: '/images/products/prince.png' },
 ];
 
 export const Gallery: React.FC = () => {
